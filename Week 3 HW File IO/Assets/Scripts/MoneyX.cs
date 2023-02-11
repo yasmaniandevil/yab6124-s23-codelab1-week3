@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementX : MonoBehaviour
+public class MoneyX : MonoBehaviour
 {
     //how fast obj moves
     public float speed = 2;
@@ -38,6 +38,8 @@ public class MovementX : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Destroy(gameObject);
+
+            GameManager.Instance.Money++;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementY : MonoBehaviour
+public class MoneyY : MonoBehaviour
 {
     //how fast obj moves
     public float speed = 2;
@@ -22,11 +22,19 @@ public class MovementY : MonoBehaviour
     }
 
     // Update is called once per frame
+    
+    void OnMouseDown()
+    {
+        Debug.Log("mouse button is down");
+        Destroy(gameObject);
+
+        GameManager.Instance.Money++;
+    }
     void Update()
     {
         Vector3 newPos = transform.position;
 
-        newPos.y += speed * Time.deltaTime;
+        newPos.y -= speed * Time.deltaTime;
 
         transform.position = newPos;
 
@@ -35,9 +43,11 @@ public class MovementY : MonoBehaviour
             cachedTransform.position = initialPos;
         }
 
-        if (Input.GetMouseButtonDown(0))
+
+        /*if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("clicked on money");
             Destroy(gameObject);
-        }
+        }*/
     }
 }
